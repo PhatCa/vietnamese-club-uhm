@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnamese Club – Landing Page</title>
+
+<style>
+/* =========  RESET  ========= */
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#333}
+img{max-width:100%;display:block}
+/* =========  THEME  ========= */
+:root{
+  --red:#da251d;
+  --yellow:#ffcc00;
+  --emerald:#009879;
+  --dark:#1a1a2e;
+  --light:#fafafa;
+}
+a{color:var(--red);text-decoration:none}
+a:hover{opacity:.8}
+/* =========  LAYOUT HELPERS  ========= */
+.section{padding:4rem 1.25rem}
+.container{max-width:1100px;margin-inline:auto}
+.grid{display:grid;gap:2rem}
+@media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+/* =========  HERO  ========= */
+.hero{background:url('https://images.unsplash.com/photo-1499696012864-7a9fca6eb7b1?auto=format&fit=crop&w=1200&q=60') center/cover;
+  position:relative;color:#fff;padding:6rem 1.25rem;text-align:center}
+.hero::after{content:'';position:absolute;inset:0;background:#0006}
+.hero>*{position:relative}
+/* =========  VALUE CARDS  ========= */
+.card{background:#fff;border-radius:.75rem;padding:2rem;box-shadow:0 6px 18px #0001;text-align:center}
+.card h3{margin-top:.75rem;font-size:1.15rem;color:#000}
+/* =========  EVENTS  ========= */
+.events{overflow-x:auto;display:flex;gap:1rem;padding-block:.75rem;margin-inline:-1.25rem}
+.event-card{min-width:200px;background:#fff;border-radius:.75rem;padding:1rem 1.25rem;box-shadow:0 4px 12px #0001}
+.event-date{font-weight:600;color:var(--red)}
+/* =========  GALLERY  ========= */
+.gallery{columns:2 200px;gap:1rem}
+@media(min-width:700px){.gallery{columns:3 240px}}
+.gallery img{border-radius:.5rem;transition:.3s}
+.gallery img:hover{transform:scale(1.04);filter:grayscale(0)}
+/* =========  LANGUAGE  ========= */
+.lang{display:flex;flex-direction:column;gap:2rem}
+@media(min-width:768px){.lang{flex-direction:row;align-items:center}}
+.lang video,.lang img{border-radius:.75rem;max-height:260px;object-fit:cover}
+/* =========  TESTIMONIALS  ========= */
+.testi-wrap{position:relative;overflow:hidden}
+.testi{display:flex;animation:slide 25s linear infinite}
+.testi blockquote{min-width:100%;padding:1.5rem}
+.testi cite{font-style:normal;color:var(--red)}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+/* =========  CTA STRIP  ========= */
+.cta{background:linear-gradient(135deg,var(--red),var(--yellow));color:#fff;text-align:center;padding:3rem 1.25rem}
+.btn{display:inline-block;background:#fff;color:var(--red);padding:.75rem 1.5rem;border-radius:2rem;font-weight:600}
+.btn:hover{background:#fff8}
+/* =========  FOOTER  ========= */
+footer{background:var(--dark);color:#bbb;padding:3rem 1.25rem;font-size:. nine five rem}
+footer a{color:var(--yellow)}
+footer .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+</style>
+</head>
+
+<body>
+
+<!-- 1️⃣ HERO -->
+<header class="hero">
+  <h1 style="font-size:clamp(2rem,6vw,3.5rem);letter-spacing:.5px">Vietnamese Student Association</h1>
+  <p style="max-width:22ch;margin:1rem auto 2.5rem">Celebrating culture • language • community at UH Mānoa</p>
+  <a href="#join" class="btn">Join a Meeting</a>
+</header>
+
+<!-- 2️⃣ WHY JOIN -->
+<section class="section">
+  <div class="container grid grid-3">
+    <div class="card"><img src="https://img.icons8.com/fluency/48/conference-call.png"/><h3>Community</h3><p>Meet lifelong friends who share your heritage or curiosity.</p></div>
+    <div class="card"><img src="https://img.icons8.com/fluency/48/pho.png"/><h3>Culture</h3><p>Cook, craft, and celebrate Vietnamese traditions together.</p></div>
+    <div class="card"><img src="https://img.icons8.com/fluency/48/book-shelf.png"/><h3>Language</h3><p>Fun mini-lessons & conversation check-ins each week.</p></div>
+  </div>
+</section>
+
+<!-- 3️⃣ UPCOMING EVENTS -->
+<section class="section" style="background:var(--light)">
+  <div class="container">
+    <h2 style="font-size:1.8rem;margin-bottom:1rem">Upcoming Events</h2>
+    <div class="events">
+      <div class="event-card"><span class="event-date">May 29</span><h4>Tết in July Planning</h4><p>Brainstorm, props & lantern painting.</p></div>
+      <div class="event-card"><span class="event-date">Jun 12</span><h4>Vietnamese 101 Crash Course</h4><p>Basics for travelers & friends.</p></div>
+      <div class="event-card"><span class="event-date">Jun 21</span><h4>Pho Night Fund-raiser</h4><p>Help prep & serve bowls on campus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4️⃣ CULTURE GALLERY -->
+<section class="section">
+  <div class="container">
+    <h2 style="font-size:1.8rem;margin-bottom:1rem">Moments We Cherish</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1604371093190-17b30e0fcd4b?w=600" alt="">
+      <img src="https://images.unsplash.com/photo-1535503029278-6a319a2420e4?w=600" alt="">
+      <img src="https://images.unsplash.com/photo-1599058917212-2caa2e1db6fd?w=600" alt="">
+      <img src="https://images.unsplash.com/photo-1589987601088-5cf36a642443?w=600" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- 5️⃣ LANGUAGE CORNER -->
+<section class="section" style="background:var(--light)">
+  <div class="container lang">
+    <div><h2 style="font-size:1.8rem;margin-bottom:.5rem">Language Corner</h2>
+      <p>Practice phrases every meeting—no experience needed.</p>
+      <p><strong>Xin chào!</strong> <em>/sin chow/</em> – Hello!</p>
+    </div>
+    <video src=\"https://cdn.pixabay.com/vimeo/461505993/flowers-46011.mp4?width=640&hash=7c9b4d4fbd37\" controls muted></video>
+  </div>
+</section>
+
+<!-- 6️⃣ TESTIMONIALS -->
+<section class="section">
+  <div class="container testi-wrap" style="background:var(--light);border-radius:.75rem">
+    <div class="testi">
+      <blockquote>“I found a family away from home. The cultural nights are 🔥!” <br><cite>– Linh N., Biology ’26</cite></blockquote>
+      <blockquote>“Language Corner helped me speak with my grandparents for the first time.” <br><cite>– Jason T., MIS ’25</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 7️⃣ CTA STRIP -->
+<section class="cta" id="join">
+  <h2 style="font-size:2rem;margin-bottom:1rem">Ready to add a splash of culture to campus life?</h2>
+  <a href="#" class="btn">Become a Member</a>
+</section>
+
+<!-- 8️⃣ FOOTER -->
+<footer>
+  <div class="container grid grid-3">
+    <div><h4 style="color:#fff;margin-bottom:.5rem">About VSA</h4><p>Promoting Vietnamese culture, unity & service since 2005.</p></div>
+    <div><h4 style="color:#fff;margin-bottom:.5rem">Quick Links</h4><ul style="list-style:none"><li><a href="#">Events</a></li><li><a href=\"#\">Resources</a></li><li><a href=\"#\">Constitution</a></li></ul></div>
+    <div><h4 style=\"color:#fff;margin-bottom:.5rem\">Connect</h4><p><a href=\"#\">Instagram</a> · <a href=\"#\">Facebook</a> · <a href=\"#\">Discord</a></p></div>
+  </div>
+  <p style=\"margin-top:2rem;text-align:center\">© 2025 Vietnamese Student Association – University of Hawaiʻi at Mānoa</p>
+</footer>
+
+</body>
+</html>

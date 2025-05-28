@@ -1,0 +1,72 @@
+{% load static tailwind_tags %} {% tailwind_css %}
+<nav class="bg-white border border-gray-200 px-4 sm:px-4 py-2.5 shadow">
+	<div class="container flex flex-wrap justify-between items-center mx-auto">
+		<a href="/" class="flex items-center space-x-3 hover:opacity-90">
+			<!-- club logo -->
+			<img src="{% static "VSA_Logo.png" %}" alt="Vietnamese Student Association
+			logo" class="h-10 w-10 rounded-full object-cover ring-2 ring-blue-600/70
+			dark:ring-blue-500/70 shadow-sm" />
+			<span
+				class="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
+				Vietnamese Student Association
+			</span>
+		</a>
+
+		<div class="flex items-center">
+			<button
+				id="menu-toggle"
+				type="button"
+				class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden">
+				<span class="sr-only">Open main menu</span>
+				<!-- Hamburger icon -->
+				<svg
+					class="h-6 w-6"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16m-7 6h7" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="w-full md:block md:w-auto hidden" id="mobile-menu">
+			<ul
+				class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+				<li>
+					<a
+						href="/"
+						class="relative inline cursor-pointer text-xl font-medium before:bg-violet-600 before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100">
+						Home
+					</a>
+				</li>
+				<li>
+					<a
+						href="/about"
+						class="relative inline cursor-pointer text-xl font-medium before:bg-violet-600 before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100">
+						About
+					</a>
+				</li>
+				<li>
+					<a
+						href="/event"
+						class="relative inline cursor-pointer text-xl font-medium before:bg-violet-600 before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100">
+						Event
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<script>
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileMenu = document.getElementById('mobile-menu');
+
+	menuToggle.addEventListener('click', function () {
+		mobileMenu.classList.toggle('hidden');
+	});
+</script>

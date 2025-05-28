@@ -1,0 +1,184 @@
+{% load static tailwind_tags %} {% tailwind_css %}
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vietnamese Club</title>
+	</head>
+	<body>
+		<main class="bg-gray-200">
+			{% include "components/navbar.html"%}
+
+			<section class="py-16">
+				<div class="container mx-auto px-6 lg:px-8">
+					<!-- Heading -->
+					<header class="max-w-2xl mx-auto text-center mb-12">
+						<p
+							class="text-sm font-semibold tracking-wider text-red-500 uppercase">
+							Past Events
+						</p>
+						<h1 class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-800">
+							A Look Back at Our Highlights
+						</h1>
+					</header>
+
+					<!-- Event grid -->
+					<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+						<!-- Event card -->
+						<article
+							class="relative flex flex-col overflow-hidden rounded-2xl shadow-lg bg-white transition hover:shadow-2xl">
+							<!-- Image / media -->
+							<figure class="relative w-full aspect-video">
+								<img
+									src="https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg"
+									alt="2020 National Championship"
+									class="absolute inset-0 h-full w-full object-cover" />
+							</figure>
+
+							<!-- Date badge -->
+							<div
+								class="absolute left-4 top-4 flex flex-col items-center rounded-lg bg-red-600 px-3 py-1.5 text-white text-xs font-medium shadow-lg">
+								<span class="uppercase tracking-wide">Jan</span>
+								<span class="text-lg font-bold leading-none">13</span>
+								<span class="mt-0.5">7 PM</span>
+							</div>
+
+							<!-- Content -->
+							<div class="flex flex-col flex-1 p-6">
+								<h2
+									class="mb-3 text-lg font-bold text-gray-800 line-clamp-2 group-hover:text-red-600 transition">
+									2020 National Championship
+								</h2>
+								<p class="mb-6 text-sm leading-relaxed text-gray-600">
+									The College Football Playoff (CFP) determines the national
+									champion of the top division of college football. The format
+									fits within the academic calendar and preserves the sport’s
+									unique and compelling regular season.The College Football
+									Playoff (CFP) determines the national champion of the top
+									division of college football. The format fits within the
+									academic calendar and preserves the sport’s unique and
+									compelling regular season.The College Football Playoff (CFP)
+									determines the national champion of the top division of
+									college football. The format fits within the academic calendar
+									and preserves the sport’s unique and compelling regular
+									season.
+								</p>
+
+								<!-- Footer -->
+								<footer
+									class="mt-auto flex items-center justify-between text-sm text-gray-500">
+									<span>Mercedes-Benz Superdome</span>
+								</footer>
+								<!-- — Event stats strip — -->
+								<div class="pt-4 mt-auto border-t border-gray-100">
+									<div class="flex items-center justify-between">
+										<!-- Attendee count -->
+										<div
+											class="flex items-center text-xs text-gray-500 font-medium">
+											<!-- user/people icon -->
+											<svg
+												class="h-4 w-4 mr-1.5 shrink-0"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="1.5"
+												viewBox="0 0 24 24">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.418 0-8 1.79-8 4v1a.91.91 0 00.967.9h14.066A.91.91 0 0020 19v-1c0-2.21-3.582-4-8-4z" />
+											</svg>
+											250&nbsp;attendees
+										</div>
+
+										<!-- Sponsors (logo row) -->
+										<div class="flex flex-space-x-3 rtl:space-x-reverse">
+											<!-- up to 3–4 little circles; overflow shows +n -->
+											<img
+												src="https://dummyimage.com/40x40/ccc/000&text=A"
+												alt="Sponsor A"
+												class="h-7 w-7 rounded-full ring-2 ring-white object-cover" />
+											<img
+												src="https://dummyimage.com/40x40/bbb/000&text=B"
+												alt="Sponsor B"
+												class="h-7 w-7 rounded-full ring-2 ring-white object-cover" />
+											<img
+												src="https://images.squarespace-cdn.com/content/v1/5d37c623ac033d0001fd45d5/1566034360432-446D16F1UEJ4TM9EWBYD/bank-of-hawaii-logo.png"
+												alt="Sponsor C"
+												class="h-7 w-7 rounded-full ring-2 ring-white object-cover" />
+											<!-- optional “+2” pill if more sponsors -->
+										</div>
+									</div>
+								</div>
+								<!-- — / Event stats strip — -->
+							</div>
+						</article>
+
+						<!-- ---- Duplicate or loop over more events here ---- -->
+						<!-- Example: two more placeholder cards to illustrate the grid -->
+						<article
+							class="relative flex flex-col overflow-hidden rounded-2xl shadow-lg bg-white">
+							<figure class="relative w-full aspect-video">
+								<img
+									src="https://dummyimage.com/800x450/ccc/000&text=Mid-Autumn+Festival"
+									alt="Mid-Autumn Festival"
+									class="absolute inset-0 h-full w-full object-cover" />
+							</figure>
+							<div
+								class="absolute left-4 top-4 flex flex-col items-center rounded-lg bg-red-600 px-3 py-1.5 text-white text-xs font-medium shadow-lg">
+								<span>Sep</span><span class="text-lg font-bold">28</span
+								><span>6 PM</span>
+							</div>
+							<div class="flex flex-col flex-1 p-6">
+								<h2 class="mb-3 text-lg font-bold text-gray-800 line-clamp-2">
+									Mid-Autumn Lantern Night
+								</h2>
+								<p class="mb-6 text-sm text-gray-600 line-clamp-3">
+									Mooncakes, lantern making, and cultural performances lit up
+									the evening as our community celebrated together.
+								</p>
+								<footer
+									class="mt-auto flex items-center justify-between text-sm text-gray-500">
+									<span>Campus Lawn</span>
+								</footer>
+							</div>
+						</article>
+
+						<article
+							class="relative flex flex-col overflow-hidden rounded-2xl shadow-lg bg-white">
+							<figure class="relative w-full aspect-video">
+								<img
+									src="https://dummyimage.com/800x450/bfb/000&text=Tet+Market+2024"
+									alt="Tet Market 2024"
+									class="absolute inset-0 h-full w-full object-cover" />
+							</figure>
+							<div
+								class="absolute left-4 top-4 flex flex-col items-center rounded-lg bg-red-600 px-3 py-1.5 text-white text-xs font-medium shadow-lg">
+								<span>Feb</span><span class="text-lg font-bold">09</span
+								><span>10 AM</span>
+							</div>
+							<div class="flex flex-col flex-1 p-6">
+								<h2 class="mb-3 text-lg font-bold text-gray-800 line-clamp-2">
+									Tết Market & Cultural Fair
+								</h2>
+								<p class="mb-6 text-sm text-gray-600 line-clamp-3">
+									A bustling bazaar with food stalls, traditional games, and
+									live music to usher in the Lunar New Year.
+								</p>
+								<footer
+									class="mt-auto flex items-center justify-between text-sm text-gray-500">
+									<span>Student Center</span>
+								</footer>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+			<!-- ===== /Past Events ===== -->
+
+			{% include "components/footer.html"%}
+		</main>
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+	</body>
+</html>
