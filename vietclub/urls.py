@@ -22,4 +22,4 @@ urlpatterns = [
     path('event/', views.event_page, name="event"),
 
 
-]
+] 
