@@ -11,11 +11,12 @@
 		<main class="bg-gray-200">
 			{% include "components/navbar.html"%} {% comment %} first section
 			{%endcomment %}
+
 			<div class="sliderAx h-auto">
 				<div id="slider-1" class="">
 					<div
-						class="h-screen bg-cover bg-center bg-no-repeat min-h-96 text-white py-24 px-10 object-fill"
-						style="background-image: url('{% static 'VSA_Ao_Dai.png' %}')">
+						class="h-screen bg-cover bg-center bg-no-repeat min-h-96 text-white py-24 px-10"
+						style="background-image: url('{{landing.0.landing_img_link}}')">
 						<div
 							class="w-full lg:w-1/2 backdrop-blur-sm bg-black/30 px-5 py-12 text-white lg:backdrop-blur-none lg:bg-transparent lg:px-0 lg:py-40 lg:text-inherit">
 							<p class="font-bold text-lg uppercase">Vietnamese Culture</p>
@@ -64,7 +65,7 @@
 											</svg>
 											<span
 												class="w-fit block mx-auto text-5xl font-semibold text-transparent bg-clip-text bg-white"
-												>70+</span
+												>{{landing.0.current_total_club_member}}+</span
 											>
 										</div>
 										<h2
@@ -260,34 +261,32 @@
 						class="text-4xl md:text-5xl font-bold text-center text-black mb-8 pb-10">
 						Upcoming Event
 					</h1>
-
+					{%if active_event.0%}
 					<div
 						class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-stretch">
 						<!-- Poster / Hero image -->
 						<div class="lg:pr-4">
 							<div
 								class="relative overflow-hidden rounded-3xl px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10 overflow-hidden rounded-3xl shadow-2xl w-full h-full">
-								<img class="absolute inset-0 w-full h-full object-cover"
-								src="{%static "VSA_Ao_Dai.png"%}" alt="Cinema projector" />
+								<img
+									class="absolute inset-0 w-full h-full object-cover"
+									src="{{active_event.0.image_link}}"
+									alt="Current Event" />
 							</div>
 						</div>
 
 						<!-- Event details -->
+
 						<div>
 							<div class="text-base leading-7 text-gray-700 lg:max-w-lg">
 								<p class="text-base font-semibold leading-7 text-red-500">
-									Club Cinema Night
+									{{active_event.0.event_name}}
 								</p>
 								<h2
 									class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-									Spirited Away (2001)
+									{{active_event.0.event_sub_name}}
 								</h2>
-								<p class="mt-6">
-									Grab your friends and join us for an evening of snacks,
-									laughter, and one of the most beloved animated films of all
-									time. Everyone is welcome—bring a blanket or wear your
-									comfiest hoodie!
-								</p>
+								<p class="mt-6">{{active_event.0.event_description}}</p>
 							</div>
 
 							<dl
@@ -298,7 +297,7 @@
 									</dt>
 									<dd
 										class="mt-2 text-2xl font-bold leading-10 tracking-tight text-gray-900">
-										Fri&nbsp;·&nbsp;June&nbsp;14
+										{{active_event.0.date}}
 									</dd>
 								</div>
 								<div>
@@ -307,7 +306,7 @@
 									</dt>
 									<dd
 										class="mt-2 text-2xl font-bold leading-10 tracking-tight text-gray-900">
-										7:00 PM – 10:00 PM
+										{{active_event.0.time}}
 									</dd>
 								</div>
 								<div>
@@ -316,7 +315,7 @@
 									</dt>
 									<dd
 										class="mt-2 text-2xl font-bold leading-10 tracking-tight text-gray-900">
-										Campus Center Ballroom
+										{{active_event.0.location}}
 									</dd>
 								</div>
 								<div>
@@ -325,19 +324,27 @@
 									</dt>
 									<dd
 										class="mt-2 text-2xl font-bold leading-10 tracking-tight text-gray-900">
-										Free
+										{%if active_event.0.admission%}
+										${{active_event.0.admission}} {%else%} Free {%endif%}
 									</dd>
 								</div>
 							</dl>
 
 							<div class="mt-10 flex gap-x-4">
 								<a
-									href="#"
+									href="{{active_event.0.reservation_form_link}}"
+									target="blank"
 									class="inline-block rounded-md bg-red-500 px-6 py-3 text-base font-semibold text-white shadow hover:bg-red-600 transition"
 									>RSVP Now</a
 								>
 							</div>
 						</div>
+						{% else %}
+						<h1
+							class="text-4xl md:text-3xl font-bold text-center text-black mb-8 pb-10">
+							We’re between gatherings. Keep an eye out for our next meet-up!
+						</h1>
+						{%endif%}
 					</div>
 				</div>
 			</div>
@@ -346,115 +353,41 @@
 
 			<!-- component -->
 			<div class="min-h-screen py-32 px-10">
-				<h1
-					class="text-4xl md:text-5xl font-bold text-center text-black mb-8 pb-10">
-					Upcoming Event
+				<h1 class="text-4xl md:text-5xl font-bold text-center mb-8 pb-10">
+					Previous Event
 				</h1>
+				{%if previous_event %}
 				<div
 					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6">
+					{%for event in previous_event%}
 					<div
 						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
 						<img
-							src="https://images.unsplash.com/photo-1627751476653-e954179b174a"
+							src="{{event.image_link}}"
 							alt=""
 							class="rounded-t-lg w-full" />
 						<div class="p-6">
 							<h1
 								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
+								{{event.event_name}}
 							</h1>
+							<h2
+								class="md:text-1xl text-m hover:text-indigo-600 transition duration-200 font-bold text-gray-500">
+								{{event.event_sub_name}}
+							</h2>
 							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
-							</p>
-						</div>
-					</div>
-					<div
-						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-						<img
-							src="https://images.unsplash.com/photo-1572431447238-425af66a273b"
-							alt=""
-							class="rounded-t-lg w-full" />
-						<div class="p-6">
-							<h1
-								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
-							</h1>
-							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
-							</p>
-						</div>
-					</div>
-					<div
-						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-						<img
-							src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b"
-							alt=""
-							class="rounded-t-lg w-full" />
-						<div class="p-6">
-							<h1
-								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
-							</h1>
-							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
-							</p>
-						</div>
-					</div>
-					<div
-						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-						<img
-							src="https://images.unsplash.com/photo-1506790409786-287062b21cfe"
-							alt=""
-							class="rounded-t-lg w-full" />
-						<div class="p-6">
-							<h1
-								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
-							</h1>
-							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
-							</p>
-						</div>
-					</div>
-					<div
-						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-						<img
-							src="https://images.unsplash.com/photo-1505881502353-a1986add3762"
-							alt=""
-							class="rounded-t-lg w-full" />
-						<div class="p-6">
-							<h1
-								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
-							</h1>
-							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
-							</p>
-						</div>
-					</div>
-					<div
-						class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-						<img
-							src="https://images.unsplash.com/photo-1544473244-f6895e69ad8b"
-							alt=""
-							class="rounded-t-lg w-full" />
-						<div class="p-6">
-							<h1
-								class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900">
-								This is Amazing for people to visit.
-							</h1>
-							<p class="text-gray-700 my-2 hover-text-900">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Praesentium quis.
+								{{event.event_description}}
 							</p>
 						</div>
 					</div>
 				</div>
+				{%endfor%} {%else%}
+				<h1
+					class="text-4xl md:text-3xl font-bold text-center text-black mb-8 pb-10">
+					Looks like we’re just getting started—stay tuned for our first event
+					recap!
+				</h1>
+				{%endif%}
 			</div>
 
 			<section class="pt-20 pb-20 bg-gray-100">
@@ -467,78 +400,23 @@
 					</div>
 				</div>
 				<div class="flex flex-wrap items-center justify-center mt-16 gap-8">
+					{%for officer in officers %}
 					<div class="px-6">
 						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
+							alt="{{officer.name}}"
+							src="{{officer.image_link}}"
+							class="w-32 h-32 lg:w-30 lg:h-30 object-cover rounded-full shadow-lg mx-auto" />
 						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
+							<h5 class="text-xl font-bold text-blueGray-700">
+								{{officer.name}}
+							</h5>
 							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
+								{{officer.position}}
 							</p>
 						</div>
 					</div>
-					<div class="px-6">
-						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
-						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
-							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
-							</p>
-						</div>
-					</div>
-					<div class="px-6">
-						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
-						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
-							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
-							</p>
-						</div>
-					</div>
-					<div class="px-6">
-						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
-						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
-							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
-							</p>
-						</div>
-					</div>
-					<div class="px-6">
-						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
-						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
-							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
-							</p>
-						</div>
-					</div>
-					<div class="px-6">
-						<img
-							alt="..."
-							src="https://demos.creative-tim.com/notus-js/assets/img/team-1-800x800.jpg"
-							class="shadow-lg rounded-full mx-auto w-30 lg:w-40" />
-						<div class="pt-6 text-center">
-							<h5 class="text-xl font-bold text-blueGray-700">Ryan Tompson</h5>
-							<p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-								Web Developer
-							</p>
-						</div>
-					</div>
+
+					{%endfor%}
 				</div>
 			</section>
 			{% include "components/footer.html"%}
